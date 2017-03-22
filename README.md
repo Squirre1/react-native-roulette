@@ -1,11 +1,13 @@
 ## Roulette component for react-native
 
+![](http://i.imgur.com/MVfhifa.gif)
+
 ### Installation
 ```bash
 npm install react-native-roulette
 ```
 
-###Properties
+### Properties
 
 ```
 step// Roulette items argin
