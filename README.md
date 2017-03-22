@@ -1,7 +1,5 @@
 ## Roulette component for react-native
 
-![](http://i.imgur.com/MVfhifa.gif)
-
 ### Installation
 ```bash
 npm install react-native-roulette
@@ -64,3 +62,5 @@ import Roulette from 'react-native-roulette';
 ...
 
 ```
+
+![minipic](http://i.imgur.com/MVfhifa.gif)
