@@ -58,7 +58,7 @@ import Roulette from 'react-native-roulette';
               title="TUCHAT"
               onPress={() => Actions.tuchat()}
             />
-          </Roulette>
+</Roulette>
 ...
 
 ```
