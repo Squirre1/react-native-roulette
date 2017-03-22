@@ -63,4 +63,4 @@ import Roulette from 'react-native-roulette';
 
 ```
 
-![](http://i.imgur.com/MVfhifa.gif =100x)
+![](http://i.imgur.com/MVfhifa.gif)
