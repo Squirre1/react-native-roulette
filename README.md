@@ -16,7 +16,7 @@ customCenterStyle // styles
 ```
 
 ### Usage example
-
+```
 ...
 
 import Roulette from 'react-native-roulette';
