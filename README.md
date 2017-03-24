@@ -11,6 +11,7 @@ npm install react-native-roulette
 step// Roulette items argin
 radius={300} // Roulette radius
 distance={100} // Distance from center
+renderCenter // render custom center
 customStyle // styles
 customCenterStyle // styles
 ```

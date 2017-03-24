@@ -35,8 +35,23 @@ class Roulette extends Component {
     this.setState({ centerX: x + (width / 2), centerY: y + (height / 2) });
   }
 
+  renderDefaultCenter() {
+    const { radius, customCenterStyle } = this.props;
+
+    return (
+      <View
+        style={[
+          styles.center,
+          { width: radius / 10, height: radius / 10, borderRadius: radius },
+          customCenterStyle
+        ]}
+        onLayout={(event) => this.getCenterCoordinates(event.nativeEvent.layout)}
+      />
+    );
+  }
+
   render() {
-    const { children, radius, distance, customStyle, customCenterStyle } = this.props;
+    const { children, radius, distance, renderCenter, customStyle } = this.props;
 
     const interpolatedRotateAnimation = this.state._animatedValue.interpolate({
       inputRange: [0, children.length],
@@ -63,14 +78,7 @@ class Roulette extends Component {
                 distance={distance}
               />
           )}
-          <View
-            style={[
-              styles.center,
-              { width: radius / 10, height: radius / 10, borderRadius: radius },
-              customCenterStyle
-            ]}
-            onLayout={(event) => this.getCenterCoordinates(event.nativeEvent.layout)}
-          />
+          {renderCenter ? renderCenter() : this.renderDefaultCenter()}
       </Animated.View>
     );
   }
@@ -81,6 +89,7 @@ Roulette.propTypes = {
   radius: PropTypes.number,
   distance: PropTypes.number,
   children: PropTypes.element,
+  renderCenter: PropTypes.func,
   customStyle: PropTypes.any,
   customCenterStyle: PropTypes.any
 };
