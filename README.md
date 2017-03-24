@@ -1,5 +1,7 @@
 ## Roulette component for react-native
 
+[react-native-roulette](https://www.npmjs.com/package/react-native-roulette)
+
 ### Installation
 ```bash
 npm install react-native-roulette
@@ -11,7 +13,7 @@ npm install react-native-roulette
 step // Roulette items margin
 radius={300} // Roulette radius
 distance={100} // Distance from center
-renderCenter // Render custom center
+renderCenter=() => {} // Render custom center
 customStyle // Roulette styles
 customCenterStyle // Center styles
 ```

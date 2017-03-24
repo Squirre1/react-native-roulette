@@ -78,7 +78,7 @@ class Roulette extends Component {
                 distance={distance}
               />
           )}
-          {renderCenter ? renderCenter() : this.renderDefaultCenter()}
+          {renderCenter() || this.renderDefaultCenter()}
       </Animated.View>
     );
   }
@@ -96,7 +96,8 @@ Roulette.propTypes = {
 
 Roulette.defaultProps = {
   radius: 300,
-  distance: 100
+  distance: 100,
+  renderCenter: () => {}
 };
 
 export default Roulette;
