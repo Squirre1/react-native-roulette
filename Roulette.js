@@ -51,11 +51,11 @@ class Roulette extends Component {
   }
 
   render() {
-    const { children, radius, distance, renderCenter, customStyle } = this.props;
+    const { children, radius, distance, renderCenter, customStyle, rouletteRotate } = this.props;
 
     const interpolatedRotateAnimation = this.state._animatedValue.interpolate({
       inputRange: [0, children.length],
-      outputRange: ['0deg', '360deg']
+      outputRange: [`${rouletteRotate}deg`, `${360 + rouletteRotate}deg`]
     });
 
     return (
@@ -76,6 +76,7 @@ class Roulette extends Component {
                 radius={radius}
                 step={this.step}
                 distance={distance}
+                rouletteRotate={rouletteRotate}
               />
           )}
           {renderCenter() || this.renderDefaultCenter()}
@@ -88,6 +89,7 @@ Roulette.propTypes = {
   step: PropTypes.number,
   radius: PropTypes.number,
   distance: PropTypes.number,
+  rouletteRotate: PropTypes.number,
   children: PropTypes.element,
   renderCenter: PropTypes.func,
   customStyle: PropTypes.any,
@@ -97,6 +99,7 @@ Roulette.propTypes = {
 Roulette.defaultProps = {
   radius: 300,
   distance: 100,
+  rouletteRotate: 0,
   renderCenter: () => {}
 };
 

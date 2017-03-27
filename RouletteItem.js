@@ -21,12 +21,12 @@ class RouletteItem extends Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { item, rouletteRotate } = this.props;
     const { coordX, coordY } = this.state;
 
     return (
       <View
-        style={{ position: 'absolute', left: coordX, top: coordY }}
+        style={{ position: 'absolute', left: coordX, top: coordY, transform: [{ rotate: `${-rouletteRotate}deg` }] }}
         onLayout={(event) => this.getCoordinates(event.nativeEvent.layout)}
       >
         {item}
@@ -40,6 +40,7 @@ RouletteItem.propTypes = {
   index: PropTypes.number,
   radius: PropTypes.number,
   distance: PropTypes.number,
+  rouletteRotate: PropTypes.number,
   item: PropTypes.element.isRequired
 };
 
