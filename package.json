@@ -1,6 +1,6 @@
 {
   "name": "react-native-roulette",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "react native roulette",
   "main": "Roulette.js",
   "scripts": {

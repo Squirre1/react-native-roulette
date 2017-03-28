@@ -19,14 +19,18 @@ class Roulette extends Component {
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: () => true,
       onPanResponderRelease: () => {
-        const { children } = this.props;
-        const { activeItem } = this.state;
-        const nextItem = activeItem + 1;
+        const { enableUserRotate } = this.props;
 
-        this.state._animatedValue.setValue(activeItem);
-        Animated.timing(this.state._animatedValue, { toValue: nextItem, easing: Easing.linear }).start();
+        if (enableUserRotate) {
+          const { children } = this.props;
+          const { activeItem } = this.state;
+          const nextItem = activeItem + 1;
 
-        this.setState({ activeItem: nextItem > children.length ? 1 : nextItem });
+          this.state._animatedValue.setValue(activeItem);
+          Animated.timing(this.state._animatedValue, { toValue: nextItem, easing: Easing.linear }).start();
+
+          this.setState({ activeItem: nextItem > children.length ? 1 : nextItem });
+        }
       }
     });
   }
@@ -90,6 +94,7 @@ Roulette.propTypes = {
   radius: PropTypes.number,
   distance: PropTypes.number,
   rouletteRotate: PropTypes.number,
+  enableUserRotate: PropTypes.bool,
   children: PropTypes.element,
   renderCenter: PropTypes.func,
   customStyle: PropTypes.any,
@@ -100,6 +105,7 @@ Roulette.defaultProps = {
   radius: 300,
   distance: 100,
   rouletteRotate: 0,
+  enableUserRotate: false,
   renderCenter: () => {}
 };
 

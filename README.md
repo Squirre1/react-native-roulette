@@ -14,6 +14,7 @@ step // Roulette items margin
 radius={300} // Roulette radius
 distance={100} // Distance from center
 rouletteRotate={0} // Roulette rotate angle
+enableUserRotate={false} // Enable user input for rotate
 renderCenter=() => {} // Render custom center
 customStyle // Roulette styles
 customCenterStyle // Center styles
