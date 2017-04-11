@@ -1,6 +1,4 @@
 ### Installation
-npm: [react-native-roulette](https://www.npmjs.com/package/react-native-roulette)
-
 ```bash
 npm install react-native-roulette
 ```
