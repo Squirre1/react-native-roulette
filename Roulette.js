@@ -19,7 +19,7 @@ class Roulette extends Component {
       onMoveShouldSetResponderCapture: () => true,
       onMoveShouldSetPanResponderCapture: () => true,
       onPanResponderRelease: () => {
-        const { enableUserRotate } = this.props;
+        const { enableUserRotate, handlerOfRotate } = this.props;
 
         if (enableUserRotate) {
           const { children } = this.props;
@@ -29,7 +29,9 @@ class Roulette extends Component {
           this.state._animatedValue.setValue(activeItem);
           Animated.timing(this.state._animatedValue, { toValue: nextItem, easing: Easing.linear }).start();
 
-          this.setState({ activeItem: nextItem > children.length ? 1 : nextItem });
+          const newActiveItem = nextItem > children.length ? 1 : nextItem;
+
+          this.setState({ activeItem: newActiveItem }, () => handlerOfRotate(children[children.length - newActiveItem].props));
         }
       }
     });
@@ -97,6 +99,7 @@ Roulette.propTypes = {
   enableUserRotate: PropTypes.bool,
   children: PropTypes.element,
   renderCenter: PropTypes.func,
+  handlerOfRotate: PropTypes.func,
   customStyle: PropTypes.any,
   customCenterStyle: PropTypes.any
 };
@@ -106,7 +109,8 @@ Roulette.defaultProps = {
   distance: 100,
   rouletteRotate: 0,
   enableUserRotate: false,
-  renderCenter: () => {}
+  renderCenter: () => {},
+  handlerOfRotate: () => {}
 };
 
 export default Roulette;

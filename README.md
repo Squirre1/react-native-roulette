@@ -10,12 +10,17 @@ npm install react-native-roulette
 ### Properties
 
 ```
+children // must be greater than 1
+
 step // Roulette items margin
-radius={300} // Roulette radius
-distance={100} // Distance from center
-rouletteRotate={0} // Roulette rotate angle
-enableUserRotate={false} // Enable user input for rotate
-renderCenter=() => {} // Render custom center
+radius = {300} // Roulette radius
+distance = {100} // Distance from center
+rouletteRotate = {0} // Roulette rotate angle
+enableUserRotate = {false} // Enable user input for rotate
+
+renderCenter = () => {} // Render custom center
+handlerOfRotate = () => {} // Return active item props after rotation
+
 customStyle // Roulette styles
 customCenterStyle // Center styles
 ```
@@ -26,7 +31,7 @@ customCenterStyle // Center styles
 
 import Roulette from 'react-native-roulette';
 
-<Roulette>
+<Roulette rouletteRotate={10} enableUserRotate onRotate={(props) => console.log(props)} >
   <AppIcon
     ref="icon"
     logo={TAPBOO_LOGO}
