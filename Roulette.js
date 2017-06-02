@@ -15,7 +15,7 @@ class Roulette extends Component {
 
     this.step = props.step || (2 * Math.PI) / props.children.length;
 
-    this.panResponder = proprs.enableUserRotate ? (
+    this.panResponder = props.enableUserRotate ? (
       PanResponder.create({
         onMoveShouldSetResponderCapture: () => true,
         onMoveShouldSetPanResponderCapture: () => true,
