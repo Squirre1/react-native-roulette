@@ -15,13 +15,12 @@ class Roulette extends Component {
 
     this.step = props.step || (2 * Math.PI) / props.children.length;
 
-    this.panResponder = PanResponder.create({
-      onMoveShouldSetResponderCapture: () => true,
-      onMoveShouldSetPanResponderCapture: () => true,
-      onPanResponderRelease: () => {
-        const { enableUserRotate, handlerOfRotate } = this.props;
-
-        if (enableUserRotate) {
+    this.panResponder = proprs.enableUserRotate ? (
+      PanResponder.create({
+        onMoveShouldSetResponderCapture: () => true,
+        onMoveShouldSetPanResponderCapture: () => true,
+        onPanResponderRelease: () => {
+          const { handlerOfRotate } = this.props;
           const { children } = this.props;
           const { activeItem } = this.state;
           const nextItem = activeItem + 1;
@@ -33,8 +32,12 @@ class Roulette extends Component {
 
           this.setState({ activeItem: newActiveItem }, () => handlerOfRotate(children[children.length - newActiveItem].props));
         }
+      })
+    ) : (
+      {
+        panHandlers: {}
       }
-    });
+    )
   }
 
   getCenterCoordinates({ x, y, width, height }) {
