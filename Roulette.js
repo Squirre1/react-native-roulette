@@ -1,4 +1,5 @@
-import React, { Component, PropTypes, Children } from 'react';
+import React, { Component, Children } from 'react';
+import PropTypes from 'prop-types';
 import { View, Animated, PanResponder, Easing } from 'react-native';
 
 import RouletteItem from './RouletteItem';
@@ -97,7 +98,7 @@ Roulette.propTypes = {
   distance: PropTypes.number,
   rouletteRotate: PropTypes.number,
   enableUserRotate: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.any,
   renderCenter: PropTypes.func,
   handlerOfRotate: PropTypes.func,
   customStyle: PropTypes.any,
